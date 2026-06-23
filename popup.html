@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackhole Break</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="space-city-background">
+    <div class="shooting-star s1"></div>
+    <div class="shooting-star s2"></div>
+    <div class="shooting-star s3"></div>
+    <div class="city-skyline"></div>
+  </div>
+
+  <main class="popup">
+    <section class="hero">
+      <p class="eyebrow">Chrome Extension</p>
+      <h1>Blackhole Break</h1>
+      <p class="lede">
+        A non-blocking cosmic tracking companion to keep an eye on your work visual intervals.
+      </p>
+    </section>
+
+    <section class="card toggle-card">
+      <div class="row">
+        <label for="engineToggle" style="font-weight: 600;">
+          Tracking Status
+        </label>
+
+        <div class="switch-wrapper">
+          <span
+            id="toggleStateLabel"
+            style="font-size: 0.8rem; color: #7cf4ff; margin-right: 8px;"
+          >
+            Running
+          </span>
+
+          <input
+            id="engineToggle"
+            type="checkbox"
+            checked
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <label for="workMinutes">Work Duration</label>
+        <output id="workValue">20m</output>
+      </div>
+
+      <input
+        id="workMinutes"
+        type="range"
+        min="1"
+        max="60"
+        step="1"
+        value="20"
+      />
+
+      <p class="subtle">
+        Set your standard operational work cycles.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <label for="breakSeconds">Break Interval</label>
+        <output id="breakValue">30s</output>
+      </div>
+
+      <input
+        id="breakSeconds"
+        type="range"
+        min="30"
+        max="120"
+        step="5"
+        value="30"
+      />
+
+      <p class="subtle">
+        Configurable horizon decay limit (30s to 2m max).
+      </p>
+    </section>
+
+    <section class="card status-card">
+      <div class="row">
+        <span>Singularity Vector</span>
+        <span id="statusText">Dormant</span>
+      </div>
+
+      <div class="row">
+        <span>Next Event Horizon</span>
+        <span id="nextBreakText">—</span>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button
+        id="startNow"
+        class="primary"
+        type="button"
+      >
+        Force Event Horizon
+      </button>
+
+      <button
+        id="stopNow"
+        class="secondary"
+        type="button"
+        style="display: none;"
+      >
+        Dismiss Anomaly
+      </button>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

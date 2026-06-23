@@ -1,0 +1,290 @@
+/* Universal Reset & Core Theme */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  background-color: #060402; /* Deep space void black */
+  color: #f5f0eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Atmospheric Pixel Cityscape & Star Engine */
+.space-city-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Hard-edged pixel skyline silhouette using multi-box shadows */
+.city-skyline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: #110905;
+  /* Recreating pixel buildings blocks steps */
+  clip-path: polygon(
+    0% 100%, 0% 40%, 8% 40%, 8% 20%, 16% 20%, 16% 55%, 
+    25% 55%, 25% 10%, 35% 10%, 35% 45%, 48% 45%, 48% 30%, 
+    58% 30%, 58% 50%, 64% 50%, 64% 5%, 76% 5%, 76% 35%, 
+    84% 35%, 84% 25%, 92% 25%, 92% 55%, 100% 55%, 100% 100%
+  );
+  opacity: 0.65;
+}
+
+/* Falling Pixel Shooting Stars */
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffbc6e;
+  box-shadow: -4px -4px 0 rgba(255,188,110,0.4), -8px -8px 0 rgba(255,69,0,0.2);
+  top: -10px;
+  opacity: 0;
+}
+
+.s1 { left: 20%; animation: pixel-fall 4s linear infinite; animation-delay: 0.5s; }
+.s2 { left: 60%; animation: pixel-fall 6s linear infinite; animation-delay: 2.2s; }
+.s3 { left: 85%; animation: pixel-fall 5s linear infinite; animation-delay: 1s; }
+
+@keyframes pixel-fall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100px, 320px);
+    opacity: 0;
+  }
+}
+
+/* Primary Interface Deck Container */
+.popup {
+  position: relative;
+  z-index: 2; /* Forces controls above the animation layers */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent;
+}
+
+/* Hero Header Section */
+.hero {
+  text-align: center;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 140, 40, 0.15);
+}
+
+.eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ff9d3b;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 30%, #ffbc6e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  font-size: 0.75rem;
+  color: #a0958d;
+  margin-top: 0.25rem;
+  line-height: 1.3;
+}
+
+/* Command Dashboard Cards */
+.card {
+  background: rgba(14, 10, 8, 0.75); /* Slight tint overlay so city silhouette doesn't clog text */
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 140, 40, 0.25);
+}
+
+.toggle-card {
+  background: linear-gradient(135deg, rgba(255,140,40,0.06) 0%, rgba(14, 10, 8, 0.85) 100%);
+  border: 1px solid rgba(255, 140, 40, 0.2);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label, .row span:first-child {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #dcd4cc;
+}
+
+output {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff9d3b;
+}
+
+.subtle {
+  font-size: 0.65rem;
+  color: #70665f;
+}
+
+/* Custom Neon Sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  outline: none;
+  margin: 0.3rem 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffbc6e;
+  box-shadow: 0 0 8px #ff4500;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* Custom High-Tech Toggle Switch */
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+  background: #ff9d3b;
+  box-shadow: 0 0 8px rgba(255, 157, 59, 0.4);
+}
+
+input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background: #faf6f2;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: translateX(12px);
+}
+
+/* Operational Status Monitors */
+.status-card {
+  gap: 0.35rem;
+  background: rgba(6, 4, 2, 0.85);
+}
+
+#statusText, #nextBreakText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+#nextBreakText {
+  color: #faf6f2;
+}
+
+/* Interactive Deck Action Buttons */
+.actions {
+  margin-top: 0.25rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button.primary {
+  background: linear-gradient(135deg, #ffbc6e 0%, #ff4500 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+button.primary:hover {
+  box-shadow: 0 4px 20px rgba(255, 69, 0, 0.55);
+}
+
+button.secondary {
+  background: rgba(255, 69, 0, 0.15);
+  border: 1px solid rgba(255, 69, 0, 0.3);
+  color: #ffbc6e;
+}
+
+button.secondary:hover {
+  background: rgba(255, 69, 0, 0.25);
+}
