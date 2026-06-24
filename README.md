@@ -2,7 +2,7 @@
 
 A lightweight, non-blocking break reminder for people who hate intrusive Pomodoro apps.
 
-Instead of popping up alerts or freezing your screen, Blackhole Break shows a small animated black hole inside your active tab after a work session. You can ignore it and keep working, but it slowly grows over time as a gentle reminder to take a break.
+Instead of popping up alerts or freezing your screen, Nova Break shows a small animated black hole inside your active tab after a work session. You can ignore it and keep working, but it slowly grows over time as a gentle reminder to take a break.
 
 ---
 
